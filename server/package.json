@@ -6,7 +6,8 @@
     "dev": "node --watch src/index.js",
     "start": "node src/index.js",
     "collect": "node src/jobs/runOnce.js",
-    "test:parse": "node src/services/selfTest.js"
+    "test:parse": "node src/services/selfTest.js",
+    "seed:profile": "node src/jobs/seedProfile.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
