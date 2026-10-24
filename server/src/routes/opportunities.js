@@ -7,11 +7,11 @@ const escapeRegex = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 // GET /api/opportunities?status=new&remote=true&q=react&page=1&limit=20
 router.get('/', async (req, res) => {
-  const { status, remote, q, source } = req.query;
+  const { status, remote, q, source, kind } = req.query;
   const page = Math.max(parseInt(req.query.page) || 1, 1);
   const limit = Math.min(parseInt(req.query.limit) || 20, 100);
-
   const filter = {};
+  if (kind) filter.kind = String(kind);
   if (status) filter.status = String(status);
   if (source) filter.source = String(source);
   if (remote === 'true') filter.remote = true;

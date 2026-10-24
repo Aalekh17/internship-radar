@@ -7,6 +7,7 @@ const opportunitySchema = new mongoose.Schema(
     title: { type: String, required: true },
     company: { type: String, default: 'Unknown' },
     source: { type: String, required: true }, // e.g. 'hn-whoishiring'
+    kind: { type: String, enum: ['job', 'open-source'], default: 'job', index: true },
     url: { type: String, required: true },
     // sha256 of source + URL; prevents duplicates
     hash: { type: String, required: true, unique: true },
